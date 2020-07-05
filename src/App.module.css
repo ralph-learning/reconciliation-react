@@ -1,0 +1,47 @@
+.wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+
+  width: 400px;
+}
+
+.button-on-hover:hover {
+  background-color: #25b1c5;
+}
+
+.button {
+  width: 100%;
+  padding: 8px 24px;
+  border-radius: 5px;
+  border-width: 0;
+  background-color: #2ccee4;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+  font-weight: 600;
+
+  composes: button-on-hover;
+}
+
+.input {
+  margin-top: 8px;
+  border-radius: 3px;
+  padding: 6px;
+  border: solid 1px #ccc;
+}
+
+.label {
+  width: 100%;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  line-height: 26px;
+}
+
+.small {
+  font-size: 14px;
+  line-height: 16px;
+}

@@ -1,24 +1,60 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import style from "./App.module.css";
+
+function Input({ info }) {
+  const [value, setValue] = useState("");
+  return (
+    <>
+      <small className={style.small}>
+        debug: State is <u>{info.toString()}</u>
+      </small>
+      <input
+        className={style.input}
+        value={value}
+        onChange={(event) => setValue(event.target.value)}
+        placeholder="Type something"
+      />
+    </>
+  );
+}
+
+function SameInput({ info }) {
+  const [value, setValue] = useState("");
+  return (
+    <>
+      <small className={style.small}>
+        debug: State is <u>{info.toString()}</u>
+      </small>
+      <input
+        className={style.input}
+        value={value}
+        onChange={(event) => setValue(event.target.value)}
+        placeholder="Type something"
+      />
+    </>
+  );
+}
 
 function App() {
+  const [value, setValue] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={style.wrapper}>
+      <label className={style.label}>
+        <strong>Differente instance</strong>
+        <br />
+        {value ? <Input info={value} /> : <SameInput info={value} />}
+      </label>
+
+      <label className={style.label}>
+        <strong>Same instance</strong>
+        <br />
+        {value ? <Input info={value} /> : <Input info={value} />}
+      </label>
+
+      <button className={style.button} onClick={() => setValue(!value)}>
+        Toggle value
+      </button>
     </div>
   );
 }
